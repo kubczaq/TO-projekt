@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+
+    </br></br></br></br>
+    <h1 class="display-4">CEPIK</h1></br></br>
+    <p>Wpisz nazwę użytkownika</a>.</p></br></br></br>
+
+</div>
+<div class="input-group">
+    <div class="form-outline">
+        <input type="search" id="form1" class="form-control" />
+    </div>
+    <button type="button" class="btn btn-primary btn-search">
+        Zaloguj
+    </button>
+</div>
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            $(".btn-search").click((e) => {
+                let id = form1.value
+                let url = "@Url.Action("Logowanie", "Uzytkownik", new { nazwa = "__id__"})"
+                url = url.replace("__id__", id)
+                window.location.href = url
+            });
+        })
+    </script>
+}

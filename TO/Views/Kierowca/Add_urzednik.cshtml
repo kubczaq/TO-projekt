@@ -1,0 +1,83 @@
+﻿@model KierowcaVM
+@{
+    ViewData["Title"] = "Dodaj nowego kierowce";
+}
+@using (Html.BeginForm("Add_urzednik", "Kierowca", FormMethod.Post))
+{
+<header>
+
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container">
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                <ul class="navbar-nav align-self-end" id="nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Urzędnik
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Kierowca" asp-action="Index_urzednik">Kierowcy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Pojazd" asp-action="Index_urzednik">Pojazdy</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="@Url.Action("Index", "Home")">Wyloguj</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <label>Imie:</label>
+        @Html.TextBoxFor(x => x.Imie, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Nazwisko:</label>
+        @Html.TextBoxFor(x => x.Nazwisko, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>PESEL:</label>
+        @Html.TextBoxFor(x => x.PESEL, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Data urodzenia:</label>
+        @Html.TextBoxFor(x => x.DataUrodzenia, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Kategorie</label>
+        @Html.TextBoxFor(x => x.Kategorie, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Punkty karne:</label>
+        @Html.TextBoxFor(x => x.Punkty, new { @Value = "12", @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Zatrzymanie:</label>
+        @Html.TextBoxFor(x => x.Zatrzymanie, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Zakaz:</label>
+        @Html.TextBoxFor(x => x.Zakaz, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Utrata:</label>
+        @Html.TextBoxFor(x => x.Utrata, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Uwagi:</label>
+        @Html.TextBoxFor(x => x.Uwagi, new { @class = "form-control" })
+    </div>
+    <a class="btn btn-secondary float-right" href="@Url.Action("Index_urzednik")">Wróć</a>
+    <button type="submit" class="btn btn-primary float-right">Dodaj</button>
+}
+<style>
+    .input-validation-error {
+        color: red;
+        font-weight: bold;
+        background-color: pink;
+    }
+</style>
